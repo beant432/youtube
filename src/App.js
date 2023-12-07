@@ -18,7 +18,7 @@ const reactRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainContainer />,
+        element: <MainContainer /> ,
       },
       {
         path: "/watch",
