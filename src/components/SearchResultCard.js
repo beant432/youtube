@@ -23,7 +23,6 @@ const dispatch=useDispatch();
     const json=await data.json();
     setVideoData(json.items);
   }
-  console.log(videoData);
   return (
    <div className="m-4 mb-3  justify-center">
    <ButtonsList />

@@ -11,7 +11,6 @@ const DemoforHooks = () => {
     }
     let x=0;
 const prime=useMemo(()=>findPrime(text), [text]);
-console.log('rendering...')
 
 const ref=useRef(0);
   return (

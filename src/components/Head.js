@@ -25,7 +25,6 @@ const Head = () => {
   const fetchSearchSuggestion=async()=>{
    const data= await fetch(YOUTUBE_SEARCH_API + searchValue);
   const json=await data.json();
-  console.log(json[1]);
   setSuggestionList(json[1]);
   dispatch(cacheResults({[searchValue]:json[1]}));
   }

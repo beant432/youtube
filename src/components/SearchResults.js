@@ -12,12 +12,10 @@ const SearchResults = () => {
     
     
       const fetchClickedSuggestion=async(val)=>{
-        console.log(val);
         const data=await fetch(YOUTUBE_GET_SEARCH_VIDEO_URL.replace(SEARCH_VAL, val));
         const json=await data.json();
         setSuggestionResultsList(json.items);
       }
-      console.log(suggestionResulsList);
   return (
     <div className='col-span-11'><SearchResultCard data={suggestionResulsList}/></div>
   )
