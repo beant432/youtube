@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Provider } from "react-redux";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import Body from "./components/Body";
 import Head from "./components/Head";
@@ -10,8 +10,9 @@ import Watch from "./components/Watch";
 import appStore from "./utils/store";
 import SearchResults from "./components/SearchResults";
 import DemoforHooks from "./components/DemoforHooks";
+import RouteNotFound from "./components/RouteNotFound";
 
-const reactRouter = createBrowserRouter([
+const reactRouter = createHashRouter([
   {
     path: "/",
     element: <Body />,
@@ -31,6 +32,10 @@ const reactRouter = createBrowserRouter([
       {
         path: "/demo",
         element: <DemoforHooks />
+      },
+      {
+        path: "*",
+        element: <RouteNotFound />,
       },
     ],
   },
