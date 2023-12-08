@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import Body from "./components/Body";
-import Head from "./components/Head";
 import MainContainer from "./components/MainContainer";
 import Watch from "./components/Watch";
 import appStore from "./utils/store";
@@ -12,14 +11,15 @@ import SearchResults from "./components/SearchResults";
 import DemoforHooks from "./components/DemoforHooks";
 import RouteNotFound from "./components/RouteNotFound";
 
+
 const reactRouter = createHashRouter([
   {
     path: "/",
-    element: <Body />,
+    element:<Body />,
     children: [
       {
         path: "/",
-        element: <MainContainer /> ,
+        element:<MainContainer />,
       },
       {
         path: "/watch",
@@ -44,9 +44,10 @@ function App() {
   return (
     <div className="text-center">
       <Provider store={appStore}>
-        <Head />
         <RouterProvider router={reactRouter} />
       </Provider>
+
+      
     </div>
   );
 }

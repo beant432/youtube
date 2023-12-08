@@ -5,15 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../utils/navSlice';
 import {  YOUTUBE_SEARCH_API } from '../utils/constants';
 import { cacheResults } from '../utils/searchSlice';
-import {  Navigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Head = () => {
-  
+  const navigate = useNavigate();
+
   const [searchValue, setSearchValue]=useState("");
   const [suggestionList, setSuggestionList]=useState([]);
-  // const [showSuggestion, setShowSuggestion]=useState(true);
   const dispatch= useDispatch();
-  // const navigate=useNavigate();
   const searchCache=useSelector((store)=>store.search);
   const handleMenu = () => {
     dispatch(toggleMenu());
@@ -54,18 +53,10 @@ const Head = () => {
     }
   },[searchValue]);
 
-
   const handleSuggestion=(val)=>{
-    console.log('works'+val);
-  //  history.push(`/watch`);
-    // fetchClickedSuggestion(val);
-    <Navigate to={'/results?search_query='+val} replace={true} />
-    window.location.href = 'results?search_query='+val;
-  //  redirect("/watch?v="+'k');
-  // return  navigate('/application') ;
+    navigate('/results?search_query='+val);
+    setSuggestionList([]);
   }
-
-  
 
   return (
     <div className="grid grid-flow-col px-5  shadow-lg">
@@ -95,7 +86,7 @@ const Head = () => {
         />
         <button className="border bg-gray-200 rounded-r-full p-2 cursor-pointer">Search</button>
       </div>
-      {suggestionList.length >0 &&(<div className='bg-gray-50 whitespace-nowrap border border-gray-100 rounded-lg p-2 absolute left-[600px] w-1/3 shadow-lg'>
+      {suggestionList.length > 0 &&(<div className='bg-gray-50 whitespace-nowrap border border-gray-100 rounded-lg p-2 absolute left-[600px] w-1/3 shadow-lg'>
         <div>{suggestionList.map((suggestion,index)=>{
           return (
           <div 

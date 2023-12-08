@@ -8,7 +8,7 @@ import ButtonsList from './ButtonsList';
 
 const SearchResultCard = (props) => {
  const {data}= props ||[];
-  const videoId=data.map(e=>e.id.videoId);
+  const videoId=data?.map(e=>e.id.videoId);
   const [videoData,setVideoData]=useState([]);
 const dispatch=useDispatch();
 

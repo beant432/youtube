@@ -5,11 +5,10 @@ import { useSearchParams } from 'react-router-dom';
 
 const SearchResults = () => {
     const [suggestionResulsList, setSuggestionResultsList]=useState([])
-const [searchParams]=useSearchParams();
-console.log(searchParams);
+    let [searchParams]=useSearchParams();
     useEffect(()=>{
-        fetchClickedSuggestion(searchParams);
-    },[])
+        fetchClickedSuggestion(searchParams.get("search_query"));
+    },[searchParams.get("search_query")])
     
     
       const fetchClickedSuggestion=async(val)=>{
