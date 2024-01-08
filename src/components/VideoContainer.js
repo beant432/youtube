@@ -26,6 +26,7 @@ const VideoContainer = () => {
   }, []);
 
   const getVideos = useCallback(async () => {
+    console.log(page, isLoading);
     if (isLoading) return;
     setIsLoading(true);
     const data = await fetch(YOUTUBE_VIDEOS_URL.replace(PAGE, page));
@@ -51,12 +52,12 @@ const VideoContainer = () => {
   }, [getVideos]);
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap overflow-y-auto">
       {isLoading && <p>Loading...</p>}
       {videos && videos[0] && <VideoCardWithAd infoData={videos[0]} />}
       {videos?.map((video) => {
         return (
-          <div className=" w-80 h-[22rem] m-4 mb-3 " key={video.id}>
+          <div className="w-80 m-4 mb-3" key={video.id}>
             <Link to={"watch?v=" + video.id}>
               <VideoCard infoData={video} />
             </Link>

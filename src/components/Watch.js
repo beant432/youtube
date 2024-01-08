@@ -28,11 +28,11 @@ const Watch = () => {
     videoData.length === 0 && <h1>Loading</h1>;
   }
   return (
-    <div className="m-10">
+    <div className="m-3 sm:m-10">
       {/* <div className="m-4 mb-3  w-8/12">
       <VideoCard infoData={videoData} />
       </div> */}
-      <div className="flex">
+      <div className="flex flex-col sm:flex-row">
         <iframe
           width="1100"
           height="600"
@@ -40,10 +40,11 @@ const Watch = () => {
           title="Innocent Or Guilty? | Taarak Mehta Ka Ooltah Chashmah | Full Episode | Ep 3936 | 23 Nov 2023"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
+          className="w-[100%] h-[100%] mb-5 sm:w-[900px] md:w-[100%] sm:h-[600px] lg:w-[1100px] sm:mb-0"
         ></iframe>
         <LiveChat />
       </div>
-      <div className="text-left mt-5">
+      <div className="text-left mt-5 p-2 h-[150px] sm:h-auto overflow-scroll">
         <CommentsContainer />
       </div>
     </div>
